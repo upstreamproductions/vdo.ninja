@@ -2296,17 +2296,17 @@
 			
 			session.stunServers = [{ urls: ["stun:stun.l.google.com:19302", "stun:stun4.l.google.com:19302"]}]; // google stun servers. default
 			
-			///////////////  ------  Custom basic TURN SETUP SECTION STARTS Here --------
-			// session.configuration = {         // uncomment to disable the default usage of the vdo.ninja turn servers.
-			//	iceServers: session.stunServers,
-			//	sdpSemantics: 'unified-plan'
-			// };
-			// var turn = {}; // Just an example entry for a basic TURN server 
-			// turn.username = "steve";
-			// turn.credential = "justtesting";
-			// turn.urls = ["turn:turn.obs.ninja:443"]; 
-			// session.configuration.iceServers.push(turn);
-			//
+			///////////////  ------  Custom TURN SETUP SECTION STARTS Here --------
+			session.configuration = {         // uncomment to disable the default usage of the vdo.ninja turn servers.
+			iceServers: session.stunServers,
+			sdpSemantics: 'unified-plan'
+			};
+			var turn = {}; // Just an example entry for a basic TURN server 
+			turn.username = "upstreamvdo";
+			turn.credential = "WiredBananaPie";
+			turn.urls = ["turn:turn.upstreamproductions.ca:443"]; 
+			session.configuration.iceServers.push(turn);
+			
 			// turn = {}; // second turn server example entry. 
 			// turn.username = "steve";
 			// turn.credential = "justtesting";
